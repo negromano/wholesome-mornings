@@ -1,10 +1,10 @@
 package com.example.wholesomemornings.view
 
-import android.app.Activity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.wholesomemornings.R
 
-class HomeActivity : Activity() {
+class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
