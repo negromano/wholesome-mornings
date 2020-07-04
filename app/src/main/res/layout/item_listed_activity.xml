@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp">
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/activityNameText"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:text="Nombre de la Actividad"
@@ -19,9 +19,9 @@
             android:id="@+id/checkBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView1"
-            android:layout_alignBottom="@+id/textView1"
+            android:layout_alignBaseline="@+id/activityNameText"
+            android:layout_alignBottom="@+id/activityNameText"
             android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/textView1" />
+            android:layout_toEndOf="@+id/activityNameText" />
 </RelativeLayout>
     <?xml version="1.0" encoding="utf-8"?>
