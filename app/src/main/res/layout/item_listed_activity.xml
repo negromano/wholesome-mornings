@@ -24,4 +24,3 @@
             android:layout_marginStart="16dp"
             android:layout_toEndOf="@+id/activityNameText" />
 </RelativeLayout>
-    <?xml version="1.0" encoding="utf-8"?>

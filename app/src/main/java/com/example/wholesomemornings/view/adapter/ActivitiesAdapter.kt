@@ -11,7 +11,7 @@ import java.util.*
 
 class ActivitiesAdapter(private val activityListener: ClickableActivityListener) : RecyclerView.Adapter<ActivitiesAdapter.ViewHolder>() {
 
-    private var activities = ArrayList<Activity>()
+    var activities = ArrayList<Activity>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val activityName: TextView = itemView.findViewById(R.id.activityNameText)
