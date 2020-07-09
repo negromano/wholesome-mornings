@@ -9,12 +9,12 @@ import com.example.wholesomemornings.R
 import com.example.wholesomemornings.model.Activity
 import java.util.*
 
-class ActivitiesAdapter(val activityListener: ClickableActivityListener) : RecyclerView.Adapter<ActivitiesAdapter.ViewHolder>() {
+class ActivitiesAdapter(private val activityListener: ClickableActivityListener) : RecyclerView.Adapter<ActivitiesAdapter.ViewHolder>() {
 
     var activities = ArrayList<Activity>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val activityName = itemView.findViewById<TextView>(R.id.activityNameText)
+        val activityName: TextView = itemView.findViewById(R.id.activityNameText)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
@@ -25,7 +25,7 @@ class ActivitiesAdapter(val activityListener: ClickableActivityListener) : Recyc
 
     override fun getItemCount(): Int = activities.size
 
-    override fun onBindViewHolder(holder: ActivitiesAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val activity = activities[position]
 
         holder.activityName.text = activity.getActivityName()
