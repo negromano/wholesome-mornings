@@ -9,7 +9,8 @@ import com.example.wholesomemornings.R
 import com.example.wholesomemornings.model.Activity
 import java.util.*
 
-class ActivitiesAdapter(private val activityListener: ClickableActivityListener) : RecyclerView.Adapter<ActivitiesAdapter.ViewHolder>() {
+class ActivitiesAdapter(private val activityListener: ClickableActivityListener) :
+    RecyclerView.Adapter<ActivitiesAdapter.ViewHolder>() {
 
     var activities = ArrayList<Activity>()
 
@@ -33,7 +34,12 @@ class ActivitiesAdapter(private val activityListener: ClickableActivityListener)
         holder.itemView.setOnClickListener {
             activityListener.onActivityClicked(activity, position)
         }
+    }
 
+    fun updateData(data: List<Activity>) {
+        activities.clear()
+        activities.addAll(data)
+        notifyDataSetChanged()
     }
 
 }
