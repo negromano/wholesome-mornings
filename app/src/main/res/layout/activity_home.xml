@@ -4,14 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="I'm the Home View"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.wholesomemornings.MainActivity">
+
+        <fragment
+            android:id="@+id/testFragmentID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.example.wholesomemornings.view.fragment.ActivityFragment"
+            tools:layout="@layout/fragment_activities_list" /> <!-- This is the line you want to add. -->
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

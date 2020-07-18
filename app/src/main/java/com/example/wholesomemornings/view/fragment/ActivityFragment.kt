@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_activities_list.*
 class ActivityFragment : Fragment(), ClickableActivityListener {
 
     private lateinit var activitiesAdapter: ActivitiesAdapter
-    //private lateinit var viewModel: ActivitiesViewmodel
+    private lateinit var viewModel: ActivitiesViewmodel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,21 +37,21 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
         activitiesAdapter = ActivitiesAdapter(this)
         activitiesAdapter.activities.addAll(listOf(TestActivity("test", 60, "Test Activity")))
 
-        // viewModel = ViewModelProviders.of(this).get(ActivitiesViewmodel::class.java)
-        // viewModel.refresh()
+         viewModel = ViewModelProviders.of(this).get(ActivitiesViewmodel::class.java)
+         viewModel.refresh()
 
         rvListedActivities.apply {
             layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
             adapter = activitiesAdapter
         }
         rlBaseSchedule.visibility = View.INVISIBLE
-        //observeViewModel()
+        observeViewModel()
     }
 
     override fun onActivityClicked(activity: Activity, position: Int) {
     }
 
-    /*private fun observeViewModel() {
+    private fun observeViewModel() {
         viewModel.listSchedule.observe(this, Observer<List<Activity>> { activity ->
             activitiesAdapter.updateData(activity)
         })
@@ -60,6 +60,6 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
             if(it != null)
                 rlBaseSchedule.visibility = View.INVISIBLE
         })
-    }*/
+    }
 
 }
