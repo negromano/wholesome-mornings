@@ -37,14 +37,14 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
         activitiesAdapter = ActivitiesAdapter(this)
         activitiesAdapter.activities.addAll(listOf(TestActivity("test", 60, "Test Activity")))
 
-         viewModel = ViewModelProviders.of(this).get(ActivitiesViewmodel::class.java)
-         viewModel.refresh()
+        viewModel = ViewModelProviders.of(this).get(ActivitiesViewmodel::class.java)
+        viewModel.refresh()
 
         rvListedActivities.apply {
             layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
             adapter = activitiesAdapter
         }
-        rlBaseSchedule.visibility = View.INVISIBLE
+        loadingBar.visibility = View.INVISIBLE
         observeViewModel()
     }
 
@@ -57,8 +57,8 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
         })
 
         viewModel.isLoading.observe(this, Observer<Boolean> {
-            if(it != null)
-                rlBaseSchedule.visibility = View.INVISIBLE
+            if (it != null)
+                loadingBar.visibility = View.INVISIBLE
         })
     }
 
