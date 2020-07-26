@@ -16,7 +16,7 @@ class ActivitiesViewmodel : ViewModel() {
     }
 
     private fun getActivitiesData() {
-        listSchedule.postValue(listOf(TestActivity("test", 60, "Test Activity")))
+        listSchedule.postValue(listOf(TestActivity("test", "Test Activity")))
         processFinished()
     }
 

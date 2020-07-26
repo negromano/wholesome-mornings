@@ -1,4 +1,4 @@
 package com.example.wholesomemornings.model
 
-class TestActivity(type: String, duration: Int, name: String) : Activity(type, duration, name) {
+class TestActivity(type: String, name: String) : Activity(type, name) {
 }
