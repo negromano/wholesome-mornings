@@ -35,7 +35,7 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
         super.onViewCreated(view, savedInstanceState)
 
         activitiesAdapter = ActivitiesAdapter(this)
-        activitiesAdapter.activities.addAll(listOf(TestActivity("test", 60, "Test Activity")))
+        activitiesAdapter.activities.addAll(listOf(TestActivity("test", "Test Activity")))
 
         viewModel = ViewModelProviders.of(this).get(ActivitiesViewmodel::class.java)
         viewModel.refresh()
@@ -52,14 +52,14 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
     }
 
     private fun observeViewModel() {
-        viewModel.listSchedule.observe(this, Observer<List<Activity>> { activity ->
+       /* viewModel.listSchedule.observe(this, Observer<List<Activity>> { activity ->
             activitiesAdapter.updateData(activity)
         })
 
         viewModel.isLoading.observe(this, Observer<Boolean> {
             if (it != null)
                 loadingBar.visibility = View.INVISIBLE
-        })
+        })*/
     }
 
 }
