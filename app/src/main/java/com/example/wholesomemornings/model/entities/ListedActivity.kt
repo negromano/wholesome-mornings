@@ -1,4 +1,4 @@
-package com.example.wholesomemornings.model
+package com.example.wholesomemornings.model.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

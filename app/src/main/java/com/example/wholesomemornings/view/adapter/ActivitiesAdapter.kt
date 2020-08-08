@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wholesomemornings.R
-import com.example.wholesomemornings.model.Activity
+import com.example.wholesomemornings.model.entities.Activity
 import java.util.*
 
 class ActivitiesAdapter(private val activityListener: ClickableActivityListener) :

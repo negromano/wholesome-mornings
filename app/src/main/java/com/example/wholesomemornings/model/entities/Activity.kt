@@ -1,4 +1,4 @@
-package com.example.wholesomemornings.model
+package com.example.wholesomemornings.model.entities
 
 abstract class Activity(val type: String, val name: String) {
 
