@@ -2,10 +2,8 @@ package com.example.wholesomemornings.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.wholesomemornings.model.Activity
-import com.example.wholesomemornings.model.TestActivity
-import java.lang.Exception
-import com.example.wholesomemornings.network.Callback
+import com.example.wholesomemornings.model.entities.Activity
+import com.example.wholesomemornings.model.entities.TestActivity
 
 class ActivitiesViewmodel : ViewModel() {
     var listSchedule: MutableLiveData<List<Activity>> = MutableLiveData()
@@ -16,7 +14,12 @@ class ActivitiesViewmodel : ViewModel() {
     }
 
     private fun getActivitiesData() {
-        listSchedule.postValue(listOf(TestActivity("test", "Test Activity")))
+        listSchedule.postValue(listOf(
+            TestActivity(
+                "test",
+                "Test Activity"
+            )
+        ))
         processFinished()
     }
 
