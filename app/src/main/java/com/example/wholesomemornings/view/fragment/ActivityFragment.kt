@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wholesomemornings.R
 import com.example.wholesomemornings.model.entities.Activity
-import com.example.wholesomemornings.model.entities.TestActivity
 import com.example.wholesomemornings.view.adapter.ActivitiesAdapter
 import com.example.wholesomemornings.view.adapter.ClickableActivityListener
 import com.example.wholesomemornings.viewmodel.ActivitiesViewmodel
@@ -35,7 +34,7 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
         activitiesAdapter = ActivitiesAdapter(this)
 
         viewModel = ViewModelProviders.of(this).get(ActivitiesViewmodel::class.java)
-        viewModel.refresh()
+        activity?.applicationContext?.let { viewModel.refresh(it) }
 
         rvListedActivities.apply {
             layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)

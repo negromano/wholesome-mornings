@@ -11,7 +11,7 @@ class Singleton {
         fun getInstance(context: Context): AppDatabase? {
             if (APPDATABASE == null) {
                 synchronized(AppDatabase::class) {
-                    APPDATABASE = Room.databaseBuilder(context.applicationContext,
+                    APPDATABASE = Room.databaseBuilder(context,
                         AppDatabase::class.java, "wholesome.db").allowMainThreadQueries()
                         .build()
                 }
