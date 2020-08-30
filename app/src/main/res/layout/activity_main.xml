@@ -16,7 +16,7 @@
             class="com.example.wholesomemornings.view.fragment.ActivityFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout="@layout/fragment_activities_list" /> <!-- This is the line you want to add. -->
+            tools:layout="@layout/fragment_activities_list" />
 
     </LinearLayout>
 
