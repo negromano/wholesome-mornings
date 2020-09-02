@@ -12,7 +12,7 @@ class Singleton {
             if (APPDATABASE == null) {
                 synchronized(AppDatabase::class) {
                     APPDATABASE = Room.databaseBuilder(context.applicationContext,
-                        AppDatabase::class.java, "studentData.db").allowMainThreadQueries()
+                        AppDatabase::class.java, "wholesome.db").allowMainThreadQueries()
                         .build()
                 }
             }

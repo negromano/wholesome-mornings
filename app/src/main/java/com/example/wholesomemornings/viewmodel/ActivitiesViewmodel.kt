@@ -6,7 +6,7 @@ import com.example.wholesomemornings.model.entities.Activity
 import com.example.wholesomemornings.model.entities.TestActivity
 
 class ActivitiesViewmodel : ViewModel() {
-    var listSchedule: MutableLiveData<List<Activity>> = MutableLiveData()
+    var listActivities: MutableLiveData<List<Activity>> = MutableLiveData()
     var isLoading = MutableLiveData<Boolean>()
 
     fun refresh() {
@@ -14,10 +14,10 @@ class ActivitiesViewmodel : ViewModel() {
     }
 
     private fun getActivitiesData() {
-        listSchedule.postValue(listOf(
+        listActivities.postValue(listOf(
             TestActivity(
                 "test",
-                "Test Activity"
+                "Test Activity FROM VIEWMODEL"
             )
         ))
         processFinished()
@@ -26,5 +26,4 @@ class ActivitiesViewmodel : ViewModel() {
     fun processFinished() {
         isLoading.value = true
     }
-
 }

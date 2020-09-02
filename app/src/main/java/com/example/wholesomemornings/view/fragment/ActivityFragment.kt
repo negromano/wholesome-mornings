@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wholesomemornings.R
@@ -32,12 +33,6 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
         super.onViewCreated(view, savedInstanceState)
 
         activitiesAdapter = ActivitiesAdapter(this)
-        activitiesAdapter.activities.addAll(listOf(
-            TestActivity(
-                "test",
-                "Test Activity"
-            )
-        ))
 
         viewModel = ViewModelProviders.of(this).get(ActivitiesViewmodel::class.java)
         viewModel.refresh()
@@ -46,7 +41,6 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
             layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
             adapter = activitiesAdapter
         }
-        loadingBar.visibility = View.INVISIBLE
         observeViewModel()
     }
 
@@ -54,14 +48,14 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
     }
 
     private fun observeViewModel() {
-       /* viewModel.listSchedule.observe(this, Observer<List<Activity>> { activity ->
+        viewModel.listActivities.observe(viewLifecycleOwner, Observer<List<Activity>> { activity ->
             activitiesAdapter.updateData(activity)
         })
 
-        viewModel.isLoading.observe(this, Observer<Boolean> {
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer<Boolean> {
             if (it != null)
                 loadingBar.visibility = View.INVISIBLE
-        })*/
+        })
     }
 
 }
