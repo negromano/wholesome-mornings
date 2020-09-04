@@ -7,7 +7,7 @@ import androidx.room.Query
 import com.example.wholesomemornings.model.entities.ListedActivity
 
 @Dao
-interface UserDao {
+interface ActivityDao {
     @Query("SELECT * FROM listed_activity")
     fun getAll(): List<ListedActivity>
 
