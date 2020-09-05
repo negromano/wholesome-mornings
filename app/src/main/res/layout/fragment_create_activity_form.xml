@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.ActivityFragment">
+
+    <RelativeLayout
+        android:id="@+id/rlActivityForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground" />
+
+        <RelativeLayout
+            android:id="@+id/rlInternalActivityForm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp">
+
+            <ProgressBar
+                android:id="@+id/loadingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/tvActivityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="Nombre de la Actividad"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/etActivityName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvActivityName"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bottom_line"
+                android:ems="10"
+                android:hint="Nombre de la Actividad"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tvActivityDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etActivityName"
+                android:text="Descripcion de la Actividad"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/etActivityDescription"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/tvActivityDescription"
+                android:background="@drawable/bottom_line"
+                android:ems="8"
+                android:hint="Descripcion de la Actividad"
+                android:inputType="textMultiLine"
+                android:padding="10dp"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Guardar" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>
