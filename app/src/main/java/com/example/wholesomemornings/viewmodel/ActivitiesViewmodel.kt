@@ -18,19 +18,14 @@ class ActivitiesViewmodel : ViewModel() {
     }
 
     private fun getActivitiesData() {
-        /*listActivities.postValue(listOf(
-            TestActivity(
-                "test",
-                "Test Activity FROM VIEWMODEL"
-            )
-        ))*/
         database?.activityDao()?.insertAll(
             ListedActivity(
+                "Esta actividad es listada",
+                "Listada",
                 "test"
             )
         )
         var data = database?.activityDao()?.getAll()
-        print(data)
         listActivities.postValue(data)
         processFinished()
     }
