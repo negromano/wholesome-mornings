@@ -38,5 +38,4 @@
             android:src="@android:drawable/ic_input_add"
             android:tint="#000" />
     </RelativeLayout>
-
 </FrameLayout>
