@@ -15,21 +15,25 @@ import com.example.wholesomemornings.view.adapter.ClickableActivityListener
 import com.example.wholesomemornings.viewmodel.ActivitiesViewmodel
 import kotlinx.android.synthetic.main.fragment_activities_list.*
 
-class CreateActivityFragment : Fragment(), ClickableActivityListener {
+class CreateActivityFragment : Fragment() {
+    private lateinit var viewModel: ActivitiesViewmodel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        viewModel = ViewModelProviders.of(this).get(ActivitiesViewmodel::class.java)
         return inflater.inflate(R.layout.fragment_create_activity_form, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        processFinished()
     }
 
-    override fun onActivityClicked(activity: Activity, position: Int) {
+    private fun processFinished() {
+        loadingBar.visibility = View.INVISIBLE
     }
 
 }

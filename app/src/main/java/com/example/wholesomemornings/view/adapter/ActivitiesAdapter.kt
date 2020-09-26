@@ -9,7 +9,9 @@ import com.example.wholesomemornings.R
 import com.example.wholesomemornings.model.entities.Activity
 import java.util.*
 
-class ActivitiesAdapter(private val activityListener: ClickableActivityListener) :
+class ActivitiesAdapter(
+    private val activityListener: ClickableActivityListener
+) :
     RecyclerView.Adapter<ActivitiesAdapter.ViewHolder>() {
 
     var activities = ArrayList<Activity>()
