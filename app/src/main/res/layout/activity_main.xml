@@ -13,10 +13,11 @@
 
         <fragment
             android:id="@+id/testFragmentID"
-            class="com.example.wholesomemornings.view.fragment.ActivityFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout="@layout/fragment_activities_list" />
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph" />
 
     </LinearLayout>
 

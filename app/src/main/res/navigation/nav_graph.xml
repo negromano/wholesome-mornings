@@ -6,13 +6,17 @@
     app:startDestination="@id/activityFragment">
 
     <fragment
-        android:id="@+id/activityFragment"
-        android:name="com.example.wholesomemornings.view.fragment.ActivityFragment"
+        android:id="@+id/createActivityFragment"
+        android:name="com.example.wholesomemornings.view.fragment.CreateActivityFragment"
         android:label="fragment_create_activity_form"
         tools:layout="@layout/fragment_create_activity_form" />
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.wholesomemornings.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/activityFragment"
+        android:name="com.example.wholesomemornings.view.fragment.ActivityFragment"
+        android:label="fragment_activities_list"
+        tools:layout="@layout/fragment_activities_list" >
+        <action
+            android:id="@+id/action_activityFragment_to_createActivityFragment3"
+            app:destination="@id/createActivityFragment" />
+    </fragment>
 </navigation>
