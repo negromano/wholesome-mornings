@@ -14,7 +14,7 @@ class ActivitiesAdapter(
 ) :
     RecyclerView.Adapter<ActivitiesAdapter.ViewHolder>() {
 
-    var activities = ArrayList<Activity>()
+    private var activities = ArrayList<Activity>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val activityName: TextView = itemView.findViewById(R.id.activityNameText)
@@ -32,7 +32,6 @@ class ActivitiesAdapter(
         val activity = activities[position]
 
         holder.activityName.text = activity.getActivityName()
-
         holder.itemView.setOnClickListener {
             activityListener.onActivityClicked(activity, position)
         }
