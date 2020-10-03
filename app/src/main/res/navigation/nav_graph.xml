@@ -9,7 +9,11 @@
         android:id="@+id/createActivityFragment"
         android:name="com.example.wholesomemornings.view.fragment.CreateActivityFragment"
         android:label="fragment_create_activity_form"
-        tools:layout="@layout/fragment_create_activity_form" />
+        tools:layout="@layout/fragment_create_activity_form" >
+        <action
+            android:id="@+id/action_createActivityFragment_to_activityFragment"
+            app:destination="@id/activityFragment" />
+    </fragment>
     <fragment
         android:id="@+id/activityFragment"
         android:name="com.example.wholesomemornings.view.fragment.ActivityFragment"

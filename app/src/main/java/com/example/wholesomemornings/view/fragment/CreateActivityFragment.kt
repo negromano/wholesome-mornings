@@ -4,27 +4,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.findNavController
+import com.example.wholesomemornings.model.db.AppDatabase
 import com.example.wholesomemornings.R
-import com.example.wholesomemornings.model.entities.Activity
-import com.example.wholesomemornings.view.adapter.ActivitiesAdapter
-import com.example.wholesomemornings.view.adapter.ClickableActivityListener
-import com.example.wholesomemornings.viewmodel.ActivitiesViewmodel
+import com.example.wholesomemornings.model.entities.ListedActivity
 import kotlinx.android.synthetic.main.fragment_activities_list.*
 
 class CreateActivityFragment : Fragment() {
-    private lateinit var viewModel: ActivitiesViewmodel
+    private var database: AppDatabase? = null
+    private lateinit var currentView: View
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(this).get(ActivitiesViewmodel::class.java)
-        return inflater.inflate(R.layout.fragment_create_activity_form, container, false)
+        currentView = inflater.inflate(R.layout.fragment_create_activity_form, container, false)
+        val saveActivityButton =
+            currentView.findViewById(R.id.saveActivityButton) as Button
+        saveActivityButton.setOnClickListener(this::createActivity)
+        return currentView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,6 +36,22 @@ class CreateActivityFragment : Fragment() {
 
     private fun processFinished() {
         loadingBar.visibility = View.INVISIBLE
+    }
+
+    private fun createActivity(view: View) {
+        database = activity?.applicationContext?.let { AppDatabase.getInstance(it) }
+        val title = currentView.findViewById(R.id.etActivityName) as EditText
+        val description = currentView.findViewById(R.id.etActivityDescription) as EditText
+        database?.activityDao()?.insertAll(
+            ListedActivity(
+                title.text.toString(),
+                "Listada",
+                description.text.toString()
+            )
+        )
+        val action =
+            CreateActivityFragmentDirections.actionCreateActivityFragmentToActivityFragment()
+        view.findNavController().navigate(action)
     }
 
 }
