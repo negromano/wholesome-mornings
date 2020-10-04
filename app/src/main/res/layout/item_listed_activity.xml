@@ -21,5 +21,6 @@
         android:layout_alignBaseline="@+id/activityNameText"
         android:layout_alignBottom="@+id/activityNameText"
         android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/activityNameText" />
+        android:layout_toEndOf="@+id/activityNameText"
+        android:buttonTint="#000" />
 </RelativeLayout>

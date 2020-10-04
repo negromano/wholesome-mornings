@@ -8,18 +8,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvListedActivities"
         android:layout_width="match_parent"
+        android:background="#fff"
         android:layout_height="match_parent" />
 
     <RelativeLayout
         android:id="@+id/rlBaseSchedule"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.4"
-            android:background="@color/colorBackground" />
 
         <ProgressBar
             android:id="@+id/loadingBar"

@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wholesomemornings.R
 import com.example.wholesomemornings.model.entities.Activity
+import com.example.wholesomemornings.model.entities.ListedActivity
 import com.example.wholesomemornings.view.adapter.ActivitiesAdapter
 import com.example.wholesomemornings.view.adapter.ClickableActivityListener
 import com.example.wholesomemornings.viewmodel.ActivitiesViewmodel
@@ -52,6 +53,8 @@ class ActivityFragment : Fragment(), ClickableActivityListener {
     }
 
     override fun onActivityClicked(activity: Activity, position: Int) {
+        val action = ActivityFragmentDirections.actionActivityFragmentToActivityDetailFragment(activity as ListedActivity)
+        currentView.findNavController().navigate(action)
     }
 
     private fun observeViewModel() {
