@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_activity_details.view.*
 
 class ActivityDetailFragment : Fragment() {
     private lateinit var currentView: View
-    val args: ActivityDetailFragmentArgs by navArgs()
+    private val args: ActivityDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,

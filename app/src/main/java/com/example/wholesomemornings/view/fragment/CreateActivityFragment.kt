@@ -12,6 +12,7 @@ import com.example.wholesomemornings.model.db.AppDatabase
 import com.example.wholesomemornings.R
 import com.example.wholesomemornings.model.entities.ListedActivity
 import kotlinx.android.synthetic.main.fragment_activities_list.*
+import com.example.wholesomemornings.utils.Toaster
 
 class CreateActivityFragment : Fragment() {
     private var database: AppDatabase? = null
@@ -49,6 +50,7 @@ class CreateActivityFragment : Fragment() {
                 description.text.toString()
             )
         )
+        activity?.applicationContext?.let { Toaster.shortToast(it, "Activity Created") }
         val action =
             CreateActivityFragmentDirections.actionCreateActivityFragmentToActivityFragment()
         view.findNavController().navigate(action)
