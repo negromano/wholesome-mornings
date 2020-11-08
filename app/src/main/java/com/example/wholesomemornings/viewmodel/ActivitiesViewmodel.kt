@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.wholesomemornings.model.db.AppDatabase
 import com.example.wholesomemornings.model.entities.Activity
-import com.example.wholesomemornings.model.entities.ListedActivity
 
 class ActivitiesViewmodel : ViewModel() {
     var listActivities: MutableLiveData<List<Activity>> = MutableLiveData()
@@ -18,19 +17,12 @@ class ActivitiesViewmodel : ViewModel() {
     }
 
     private fun getActivitiesData() {
-        database?.activityDao()?.insertAll(
-            ListedActivity(
-                "Esta actividad es listada",
-                "Listada",
-                "test"
-            )
-        )
-        var data = database?.activityDao()?.getAll()
+        val data = database?.activityDao()?.getAll()
         listActivities.postValue(data)
         processFinished()
     }
 
-    fun processFinished() {
+    private fun processFinished() {
         isLoading.value = true
     }
 }

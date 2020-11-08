@@ -12,8 +12,8 @@ interface ActivityDao {
     fun getAll(): List<ListedActivity>
 
     @Insert
-    fun insertAll(vararg users: ListedActivity)
+    fun insertAll(vararg activities: ListedActivity)
 
     @Delete
-    fun delete(user: ListedActivity)
+    fun delete(activity: ListedActivity)
 }
