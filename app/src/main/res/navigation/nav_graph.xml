@@ -9,7 +9,7 @@
         android:id="@+id/createActivityFragment"
         android:name="com.example.wholesomemornings.view.fragment.CreateActivityFragment"
         android:label="fragment_create_activity_form"
-        tools:layout="@layout/fragment_create_activity_form" >
+        tools:layout="@layout/fragment_create_activity_form">
         <action
             android:id="@+id/action_createActivityFragment_to_activityFragment"
             app:destination="@id/activityFragment" />
@@ -18,9 +18,23 @@
         android:id="@+id/activityFragment"
         android:name="com.example.wholesomemornings.view.fragment.ActivityFragment"
         android:label="fragment_activities_list"
-        tools:layout="@layout/fragment_activities_list" >
+        tools:layout="@layout/fragment_activities_list">
         <action
             android:id="@+id/action_activityFragment_to_createActivityFragment3"
-            app:destination="@id/createActivityFragment" />
+            app:destination="@id/createActivityFragment"
+            app:enterAnim="@anim/fragment_fade_enter" />
+        <action
+            android:id="@+id/action_activityFragment_to_activityDetailFragment"
+            app:destination="@id/activityDetailFragment"
+            app:enterAnim="@anim/fragment_fade_enter" />
+    </fragment>
+    <fragment
+        android:id="@+id/activityDetailFragment"
+        android:name="com.example.wholesomemornings.view.fragment.ActivityDetailFragment"
+        android:label="fragment_activity_details"
+        tools:layout="@layout/fragment_activity_details">
+        <argument
+            android:name="detailedActivity"
+            app:argType="com.example.wholesomemornings.model.entities.ListedActivity" />
     </fragment>
 </navigation>
